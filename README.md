@@ -10,7 +10,7 @@ echo '${array[spaced string]}' | shfmt
 
 ## Autores
 
-- [@osrkzc04](https://www.github.com/osrkzc04)
-
+- Oscar Gualoto [@osrkzc04](https://www.github.com/osrkzc04)
+- Erick Pisco [@0xAlex-01](https://www.github.com/0xAlex-01)
 
 ![Logo](https://puceapex.puce.edu.ec/pucetec/wp-content/uploads/2022/08/pucetec-logo.png)
