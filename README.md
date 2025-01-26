@@ -12,5 +12,6 @@ echo '${array[spaced string]}' | shfmt
 
 - Oscar Gualoto [@osrkzc04](https://www.github.com/osrkzc04)
 - Erick Pisco [@0xAlex-01](https://www.github.com/0xAlex-01)
-
+- Fernando Quiguantar [@FernandoQuiguantar](https://www.github.com/FernandoQuiguantar)
+- Hugo Placencia [@hugojosua](https://www.github.com/hugojosua)
 ![Logo](https://puceapex.puce.edu.ec/pucetec/wp-content/uploads/2022/08/pucetec-logo.png)
