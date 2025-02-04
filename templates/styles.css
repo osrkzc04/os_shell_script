@@ -1,0 +1,42 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Fondo con imagen */
+body {
+    background-image: url('fondo-empresa.jpg'); /* Cambia 'fondo-empresa.jpg' por la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+    background-color: rgba(36, 35, 35, 0.6); /* Fondo semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Estilos del botón */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
