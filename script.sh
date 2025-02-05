@@ -4,10 +4,16 @@
 file_log="/var/log/puce_tec.log"
 file_html="/var/www/html/index.html"
 file_template="./templates/index.html"
+path_backup="/backups"
 
 #Crear archivo de log si no existe
 if [ ! -f "$file_log" ]; then
     touch $file_log
+fi
+
+#Crear carpeta de backups si no existe
+if [ ! -f "$path_backup" ]; then
+    sudo mkdir $path_backup
 fi
 
 banner_main(){
@@ -96,6 +102,7 @@ config_init(){
             install_nginx
             start_nginx
             check_nginx_status
+            crear_backup
             copy_html_template
         else
             echo "❌ Instalación de Nginx cancelada."
@@ -118,10 +125,33 @@ copy_html_template(){
     read -p "Presiona Enter para continuar..."
 }
 
+#Funcion para generar Backups
+crear_backup(){
+    log "Generando Backup"
+    fecha=$(date +"%Y%m%d_%H%M%S")
+    archivo_backup="${path_backup}/backup_www_${fecha}.tar.gz"
+    tar -czf "$archivo_backup" "$file_html"
+    # Verificar si el backup se creó correctamente
+    if [ $? -eq 0 ]; then
+        log "Backup creado correctamente en $archivo_backup"
+        echo "✅ Backup creado correctamente en $archivo_backup"
+    else
+        echo "Error al crear el backup."
+        log "Error al crear el backup."
+        exit 1
+    fi
+    read -p "Presiona Enter para continuar..."
+}
+
 # Función para registrar mensajes en log
 log() {
     local mensaje="$1"
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $mensaje" >> "$file_log"
+}
+# Función para ver mensajes de log
+ver_log(){
+    cat $file_log
+    read -p "Presiona Enter para continuar..."
 }
 
 while true; 
@@ -137,6 +167,12 @@ do
             ;;
         3)
             copy_html_template
+            ;;
+        4)
+            crear_backup
+            ;;
+        5)
+            ver_log
             ;;
         6)
             echo -e "Saliendo del menú... 👋"
