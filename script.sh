@@ -102,8 +102,9 @@ config_init(){
             install_nginx
             start_nginx
             check_nginx_status
-            crear_backup
             copy_html_template
+            crear_backup
+
         else
             echo "❌ Instalación de Nginx cancelada."
             exit 0
